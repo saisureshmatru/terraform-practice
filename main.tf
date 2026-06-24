@@ -99,6 +99,7 @@ resource "aws_route_table" "rt-nat" {
      Name ="nat-gateway"
    }
 }
+33333333
 
 resource "aws_route_table_association" "rt-2" {
   subnet_id = aws_subnet.sub.id
