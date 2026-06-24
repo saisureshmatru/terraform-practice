@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "eu-north-1"
 
 }
 
 resource "aws_vpc" "test" {
-  region     = "ap-south-1"
+  region     = "eu-north-1"
   cidr_block = "10.0.0.0/24"
   tags = {
     Name = "test-server"
@@ -13,7 +13,7 @@ resource "aws_vpc" "test" {
 
 resource "aws_subnet" "sub-pub" {
   vpc_id            = aws_vpc.test.id
-  availability_zone = "ap-south-1a"
+  availability_zone = "eu-north-1a"
   cidr_block        = "10.0.0.0/28"
   tags = {
     Name = "sub-1"
@@ -21,7 +21,7 @@ resource "aws_subnet" "sub-pub" {
 }
 resource "aws_subnet" "sub" {
   vpc_id            = aws_vpc.test.id
-  availability_zone = "ap-south-1b"
+  availability_zone = "eu-north-1b"
   cidr_block        = "10.0.0.16/28"
   tags = {
     Name = "sub-2"
@@ -68,12 +68,12 @@ resource "aws_security_group" "sg" {
   }
 }
 resource "aws_instance" "ec2" {
-    ami = "ami-0e38835daf6b8a2b9"
+    ami = "ami-0189c3f216088b7db"
     instance_type = "t3.micro"
     subnet_id = aws_subnet.sub-pub.id
     security_groups = [aws_security_group.sg.id] 
     tags = {
-      Name ="ec2"
+      Name ="server"
     }
 }
 
