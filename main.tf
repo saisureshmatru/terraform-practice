@@ -16,7 +16,7 @@ resource "aws_subnet" "sub-pub" {
   availability_zone = "eu-north-1a"
   cidr_block        = "10.0.0.0/28"
   tags = {
-    Name = "sub-1"
+    Name = "test"
   }
 }
 resource "aws_subnet" "sub" {
