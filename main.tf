@@ -69,11 +69,12 @@ resource "aws_security_group" "sg" {
 }
 resource "aws_instance" "ec2" {
     ami = "ami-0189c3f216088b7db"
+   count = 3
     instance_type = "t3.micro"
     subnet_id = aws_subnet.sub-pub.id
     security_groups = [aws_security_group.sg.id] 
     tags = {
-      Name ="server"
+    Name = "AppServer-${count.index}"
     }
 }
 
@@ -105,3 +106,5 @@ resource "aws_route_table_association" "rt-2" {
   route_table_id = aws_route_table.rt-nat.id
 
 }
+resource "aws_instance" "ec2" {
+
