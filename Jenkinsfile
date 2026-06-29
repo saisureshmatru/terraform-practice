@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-pat',
+                git credentialsId: 'git',
                     url: 'https://github.com/saisureshmatru/terraform-practice.git',
                     branch: 'main'
             }
