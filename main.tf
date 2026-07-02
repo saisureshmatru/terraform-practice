@@ -5,7 +5,7 @@ provider "aws" {
 ##hello
 resource "aws_vpc" "test" {
   region     = "eu-north-1"
-  cidr_block = "10.0.0.0/21"
+  cidr_block = "10.0.0.0/22"
   tags = {
     Name = "suresh"
   }
