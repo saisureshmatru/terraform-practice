@@ -24,7 +24,7 @@ resource "aws_subnet" "sub" {
   availability_zone = "eu-north-1b"
   cidr_block        = "10.0.0.16/28"
   tags = {
-    Name = "sub-2"
+    Name = "sub-210"
   }
 }
 resource "aws_internet_gateway" "igw" {
